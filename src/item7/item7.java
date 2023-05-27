@@ -7,25 +7,39 @@ import java.util.WeakHashMap;
 import java.util.concurrent.TimeUnit;
 
 public class item7 {
+    static class KEYs{
+        int num;
+
+        public KEYs(int num) {
+            this.num = num;
+        }
+    }
     public static void main(String[] args) throws InterruptedException {
 
 //        https://mongsil1025.github.io/book/effective-java/item7/
 //        https://stackoverflow.com/questions/18406703/when-will-a-string-be-garbage-collected-in-java
-        Object key = new Object();
-        String value = new String("value");
-
-        Map<Object, String> cache = new HashMap<>();
-        cache.put(key, value);
-        System.out.println("cache.get(key) = " + cache.get(key));
-        Collection<String> values = cache.values();
-        values.stream().forEach(val -> System.out.println("val = " +val));
-        key = null;
-        System.gc();
-        TimeUnit.SECONDS.sleep(5);
-        System.out.println("cache.get(key) = " + cache.get(key));
-        values.stream().forEach(val -> System.out.println("val = " +val));
-
-        System.out.println("cache.isEmpty() = " + cache.isEmpty());
+//        KEYs key = new KEYs(100);
+//        String value = new String("value");
+//
+//        Map<KEYs, String> cache = new HashMap<>();
+//        cache.put(key, value);
+//        System.out.println("cache.get(key) = " + cache.get(key));
+//        Collection<String> values = cache.values();
+//        values.stream().forEach(val -> System.out.println("val = " +val));
+//        System.out.println(key);
+//        key = null;
+//        System.gc();
+//        System.out.println(key);
+//
+//        TimeUnit.SECONDS.sleep(5);
+//        System.out.println("cache.get(key) = " + cache.get(key));
+//        System.out.println("cache.containsKey(key) = " + cache.containsKey(key));
+//        cache.keySet()
+//                .forEach(keys-> System.out.println(keys)); // obj2
+//
+//        values.stream().forEach(val -> System.out.println("val = " +val));
+//
+//        System.out.println("cache.isEmpty() = " + cache.isEmpty());
         System.out.println("========================================");
 
 
@@ -47,7 +61,7 @@ public class item7 {
 
 
 
-//        Map<String, String> map = new WeakHashMap<>();
+        Map<String, String> map = new WeakHashMap<>();
 
         // 아래처럼 선언할 경우, GC가 작동해서 ITEM 이 사라진다.
 //        String s1 = new String("ITEM");
