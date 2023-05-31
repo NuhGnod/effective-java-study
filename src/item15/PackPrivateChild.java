@@ -5,10 +5,16 @@ public class PackPrivateChild extends PackPrivate{
     public PackPrivateChild(int x) {
         super(x);
     }
-    public void method(){
+
+    @Override
+    protected int printProtect() {
+        return super.printProtect();
+    }
+
+    public int method(){
 //        PackPrivateChild packPrivate =  new PackPrivate(1);
         PackPrivate packPrivate1 = new PackPrivate(22);
-        packPrivate1.printProtect();
+        return packPrivate1.printProtect();
 //        packPrivate.printProtect();
     }
 }

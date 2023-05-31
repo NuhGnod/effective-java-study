@@ -1,6 +1,12 @@
 package item15;
+
+import java.util.TreeSet;
+
 public class Account {
     static long balance = 10000;
+    TreeSet<Integer> ts = new TreeSet();
+    Integer a = 3;
+    Integer b = 34;
 
     public void deposit(long amount) {
         balance = balance + amount;
