@@ -12,7 +12,7 @@ public class main extends PackPrivateChild{
     public static void main(String[] args) {
 //        PackPrivate pp = new PackPrivate(2);
         PackPrivateChild packPrivateChild = new PackPrivateChild(2);
-        packPrivateChild.printProtect();
+//        packPrivateChild.printProtect();
         PackPrivateChild sd = new main(123);
         main adsasd = (main) sd;
 
@@ -23,7 +23,7 @@ public class main extends PackPrivateChild{
 
 //        main m = new main();
 //        m.method();
-        int asddas = asddas();
+//        int asddas = asddas();
 
     }
 
