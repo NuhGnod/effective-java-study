@@ -6,12 +6,12 @@ public class NotSuitableCallback {
         SomeService   service       = new SomeService();
         WrappedObject wrappedObject = new WrappedObject(service);
         Wrapper       wrapper       = new Wrapper(wrappedObject);
-        wrapper.doSomething();
+        wrapper.doSomething(wrapper);
     }
 }
 interface SomethingWithCallback {
 
-    void doSomething();
+    void doSomething(SomethingWithCallback c);
 
     void call();
 
@@ -27,8 +27,8 @@ class WrappedObject implements SomethingWithCallback {
     }
 
     @Override
-    public void doSomething() {
-        service.performAsync(this);
+    public void doSomething(SomethingWithCallback c) {
+        service.performAsync(c);
     }
 
     @Override
@@ -47,8 +47,8 @@ class Wrapper implements SomethingWithCallback {
     }
 
     @Override
-    public void doSomething() {
-        wrappedObject.doSomething();
+    public void doSomething(SomethingWithCallback c) {
+        wrappedObject.doSomething(this);
     }
 
     void doSomethingElse() {

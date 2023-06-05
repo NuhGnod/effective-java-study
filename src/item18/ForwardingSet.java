@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
 
-public class ForwardingSet<E> implements Set<E> {
+public class ForwardingSet<E> {
     private final Set<E> set;
 
     public ForwardingSet(Set<E> set) {
@@ -15,6 +15,11 @@ public class ForwardingSet<E> implements Set<E> {
         set.clear();
     }
 
+    //    @Override
+//    public void clear() {
+//        set.clear();
+//
+//    }
     public boolean contains(Object o) {
         return set.contains(o);
     }
@@ -31,6 +36,10 @@ public class ForwardingSet<E> implements Set<E> {
         return set.iterator();
     }
 
+    //    public boolean add(E e) {
+//        return set.add(e);
+//    }
+
     public boolean add(E e) {
         return set.add(e);
     }
@@ -44,6 +53,7 @@ public class ForwardingSet<E> implements Set<E> {
         return set.containsAll(c);
     }
 
+
     public Object[] toArray() {
         return set.toArray();
     }
@@ -52,6 +62,11 @@ public class ForwardingSet<E> implements Set<E> {
     public <T> T[] toArray(T[] a) {
         return set.toArray(a);
     }
+
+
+    //    public boolean addAll(Collection<? extends E> c) {
+//        return set.addAll(c);
+//    }
 
     public boolean addAll(Collection<? extends E> c) {
         return set.addAll(c);
@@ -64,6 +79,7 @@ public class ForwardingSet<E> implements Set<E> {
     public boolean removeAll(Collection<?> c) {
         return set.removeAll(c);
     }
+
 
     @Override
     public int hashCode() {

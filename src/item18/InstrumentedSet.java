@@ -13,6 +13,7 @@ public class InstrumentedSet<E> extends ForwardingSet<E>{
     @Override
     public boolean add(E e) {
         addCount++;
+//        super.com();
         return super.add(e);
     }
 
