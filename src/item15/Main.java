@@ -14,7 +14,7 @@ public class Main extends Thread{
         PublicFinalArray pfArray = new PublicFinalArray(array);
         System.out.println(pfArray);
         int[] newArray = new int[5]     ;
-        pfArray.array = newArray; // final키워드로 인해 재할당 불가.
+//        pfArray.array = newArray; // final키워드로 인해 재할당 불가.
         int[] get = pfArray.getArray();
         get[0] = -1;
         get[1] = -2;
