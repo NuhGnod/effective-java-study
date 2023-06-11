@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
 
-public class ForwardingSet<E> {
+public class ForwardingSet<E> implements Set<E>{
     private final Set<E> set;
 
     public ForwardingSet(Set<E> set) {
