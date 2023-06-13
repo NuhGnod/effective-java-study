@@ -8,6 +8,7 @@ public class InstrumentedHashSet<E> extends HashSet<E> {
     public InstrumentedHashSet() {
 
     }
+
     public InstrumentedHashSet(int initCap, float loadFactor) {
         super(initCap, loadFactor);
 

@@ -9,7 +9,14 @@ public class Main {
         System.out.println("s.getAddCount() = " + s.getAddCount());
 
         InstrumentedSet<String> set = new InstrumentedSet(new HashSet(16));
+        InstrumentedSet<String> set2 = new InstrumentedSet(new TreeSet());
+        TreeSet treeSet = new TreeSet();
+        treeSet.descendingIterator();
+
         set.addAll(List.of("가", "나", "다"));
+        set.isEmpty();
+
+
         System.out.println("set.getAddCount() = " + ((InstrumentedSet<String>) set).getAddCount());
 
         //
@@ -28,5 +35,19 @@ public class Main {
 //        System.out.println("=============================");
 //        Compile cp = new Compile();
 //        cp.compile();
+        // ====================================
+        Stack<Integer> st = new Stack<>();
+        st.push(1);
+        st.push(2);
+        st.push(3);
+        st.set(1, 10);
+        System.out.println(st);
+        CustomStack<Integer> cst = new CustomStack<>();
+        cst.push(1);
+        cst.push(2);
+        cst.push(3);
+        cst.push(4);
+        cst.push(5);
+        System.out.println(cst);
     }
 }
