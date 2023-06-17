@@ -4,9 +4,9 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        AbstractMap.SimpleEntry simpleEntry = new AbstractMap.SimpleEntry("key1", "value2");
-        Object value = simpleEntry.getValue();
-        System.out.println("value = " + value);
+//        AbstractMap.SimpleEntry simpleEntry = new AbstractMap.SimpleEntry("key1", "value2");
+//        Object value = simpleEntry.getValue();
+//        System.out.println("value = " + value);
 
 //        LinkedList
 //        WeakHashMap
@@ -37,10 +37,15 @@ public class Main {
 //        Outer.Inner_Class inner_class21 = new Outer(100_000_000).new Inner_Class();
 //        inner_class.print();
 
-        Outer.도우미클래스.정적도우미();
+//        Outer.도우미클래스.정적도우미();
         Outer.도우미클래스 도우미클래스 = new Outer.도우미클래스();
-        도우미클래스.도우미();
-        int d = Outer.도우미클래스.d;
+//        도우미클래스.도우미();
+        Outer outer = new Outer(100);
+        outer.push(도우미클래스);
+        System.out.println(outer.getHelper()[0].a);
+        도우미클래스.a = -1;
+        System.out.println(outer.getHelper()[0].a);
+
     }
 
 }
