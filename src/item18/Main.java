@@ -9,12 +9,15 @@ public class Main {
         System.out.println("s.getAddCount() = " + s.getAddCount());
 
         InstrumentedSet<String> set = new InstrumentedSet(new HashSet(16));
+
         InstrumentedSet<String> set2 = new InstrumentedSet(new TreeSet());
+
         TreeSet treeSet = new TreeSet();
         treeSet.descendingIterator();
 
         set.addAll(List.of("가", "나", "다"));
         set.isEmpty();
+
 
 
         System.out.println("set.getAddCount() = " + ((InstrumentedSet<String>) set).getAddCount());

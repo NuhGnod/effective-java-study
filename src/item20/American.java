@@ -8,8 +8,13 @@ public class American extends AbstractPerson {
 
     @Override
     public void talk() {
-        System.out.println("Hello");
+        return ;
     }
+//    @Override
+//    public void talk() {
+//        System.out.println("Hello");
+//    }
+
 
     @Override
     public void nativeLanguage() {

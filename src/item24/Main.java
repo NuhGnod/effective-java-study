@@ -1,19 +1,46 @@
 package item24;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Stack;
-import java.util.WeakHashMap;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-//        HashMap
+        AbstractMap.SimpleEntry simpleEntry = new AbstractMap.SimpleEntry("key1", "value2");
+        Object value = simpleEntry.getValue();
+        System.out.println("value = " + value);
+
 //        LinkedList
 //        WeakHashMap
-        StaticTest st = new StaticTest();
-        StaticTest.innerClass innerClass = new StaticTest().new innerClass();
-        st.new innerClass();
+//        StaticTest st = new StaticTest();
+//        StaticTest.innerClass innerClass = new StaticTest().new innerClass();
+//        st.new innerClass();
 
+//        Outer.Inner_Class inner_class = new Outer(100_000_000).new Inner_Class();
+//        Outer.Inner_Class inner_class1 = new Outer(100_000_000).new Inner_Class();
+//        Outer.Inner_Class inner_class2 = new Outer(100_000_000).new Inner_Class();
+//        Outer.Inner_Class inner_class3 = new Outer(100_000_000).new Inner_Class();
+//        Outer.Inner_Class inner_class4 = new Outer(100_000_000).new Inner_Class();
+//        Outer.Inner_Class inner_class5 = new Outer(100_000_000).new Inner_Class();
+//        Outer.Inner_Class inner_class6 = new Outer(100_000_000).new Inner_Class();
+//        Outer.Inner_Class inner_class7 = new Outer(100_000_000).new Inner_Class();
+//        Outer.Inner_Class inner_class8 = new Outer(100_000_000).new Inner_Class();
+//        Outer.Inner_Class inner_class9 = new Outer(100_000_000).new Inner_Class();
+//        Outer.Inner_Class inner_class11 = new Outer(100_000_000).new Inner_Class();
+//        Outer.Inner_Class inner_class12 = new Outer(100_000_000).new Inner_Class();
+//        Outer.Inner_Class inner_class13 = new Outer(100_000_000).new Inner_Class();
+//        Outer.Inner_Class inner_class14 = new Outer(100_000_000).new Inner_Class();
+//        Outer.Inner_Class inner_class15 = new Outer(100_000_000).new Inner_Class();
+//        Outer.Inner_Class inner_class16 = new Outer(100_000_000).new Inner_Class();
+//        Outer.Inner_Class inner_class17 = new Outer(100_000_000).new Inner_Class();
+//        Outer.Inner_Class inner_class18 = new Outer(100_000_000).new Inner_Class();
+//        Outer.Inner_Class inner_class19 = new Outer(100_000_000).new Inner_Class();
+//        Outer.Inner_Class inner_class20 = new Outer(100_000_000).new Inner_Class();
+//        Outer.Inner_Class inner_class21 = new Outer(100_000_000).new Inner_Class();
+//        inner_class.print();
+
+        Outer.도우미클래스.정적도우미();
+        Outer.도우미클래스 도우미클래스 = new Outer.도우미클래스();
+        도우미클래스.도우미();
+        int d = Outer.도우미클래스.d;
     }
 
 }

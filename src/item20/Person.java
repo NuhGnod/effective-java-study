@@ -7,8 +7,13 @@ public interface Person {
 
     public void run();
 
-    public void talk();
-
+//    public void talk();
+    default public void talk(String i){
+        return ;
+    }
+    default public void talk(){
+        return;
+    }
     public void nativeLanguage();
 
     public Person getInstance();

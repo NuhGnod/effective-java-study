@@ -3,13 +3,14 @@ package item20;
 public abstract class AbstractPerson implements Person {
 
     private int origin;
-
+    public static final String aa = "ASD";
     @Override
     public int getOrigin() {
         return origin;
     }
 
     public AbstractPerson(int origin) {
+
         this.origin = origin;
     }
 

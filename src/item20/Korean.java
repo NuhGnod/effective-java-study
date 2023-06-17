@@ -7,7 +7,10 @@ public class Korean extends AbstractPerson {
 
     @Override
     public void talk() {
-        System.out.println("안녕하세요.");
+        System.out.println(aa);
+        String aa = "123";
+        System.out.println(aa);
+//        System.out.println("안녕하세요.");
     }
 
     @Override
