@@ -9,5 +9,8 @@ public class Child extends Parent {
         this.childName = childName;
         this.childAge = childAge;
     }
+    public Child() {
+
+    }
 
 }

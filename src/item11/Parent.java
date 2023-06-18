@@ -11,8 +11,9 @@ public class Parent {
 
     @Override
     public int hashCode() {
-
-
         return super.hashCode();
+    }
+    public Parent() {
+
     }
 }
