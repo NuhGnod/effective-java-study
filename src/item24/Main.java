@@ -45,7 +45,22 @@ public class Main {
         System.out.println(outer.getHelper()[0].a);
         도우미클래스.a = -1;
         System.out.println(outer.getHelper()[0].a);
+        Anonymous an = new Anonymous();
+        an.say();
+        an.an.print();
+        Animal dog = new Animal() {
+            // @Override 메소드
+            public String bark() {
+                return "개가 짖습니다";
+            }
 
+            // 새로 정의한 메소드
+            public String run() {
+                return "달리기 ㄱㄱ싱";
+            }
+        };
+        System.out.println(dog.bark());
+//        dog.run(); // ! Error - 외부에서 호출 불가능
     }
 
 }

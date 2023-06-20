@@ -54,6 +54,7 @@ public class Outer {
         int d = 도우미클래스.d;
     }
 
+
     public 도우미클래스[] getHelper() {
         return this.helper;
     }
