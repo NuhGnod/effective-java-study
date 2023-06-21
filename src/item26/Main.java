@@ -9,7 +9,11 @@ import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
+
         List<String> strings = new ArrayList<>();
+        if (strings instanceof Set<?>) {
+
+        }
         List raw = new ArrayList();
         List<Object> objects = new ArrayList<>();
 
@@ -79,7 +83,7 @@ public class Main {
      * 타입 매개변수가 Object타입인 제네릭 메서드
      *
      * @param list
-     * @param o
+     * @param o`
      */
 //    private static void unsafeAdd(List<Object> list, Object o) {
 //        list.add(o);
