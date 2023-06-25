@@ -11,18 +11,19 @@ public class Main {
 
         }
         while (!stack.isEmpty()) {
-            System.out.println(stack.pop().toUpperCase());
+            System.out.println(String.valueOf(stack.pop())
+                    .toUpperCase());
         }
     }
 }
 
 class Stack<E> {
-//        private E[] elements;
+    //    public E[] elements;
     private Object[] elements; // case 2
     private int size = 0;
     private static final int DEFAULT_INITIAL_CAPACITY = 16;
 
-//    @SuppressWarnings("unchecked") //case 1
+    //    @SuppressWarnings("unchecked") //case 1
     public Stack() {
 //        elements = new E[DEFAULT_INITIAL_CAPACITY];
 //        elements = (E[]) new Object[DEFAULT_INITIAL_CAPACITY]; // case 1
@@ -30,12 +31,17 @@ class Stack<E> {
     }
 
     public void push(E e) {
+
+        if (e instanceof String) {
+            System.out.println("String");
+        }
         ensureCapacity();
-        elements[size++] =e;
+        elements[size++] = e;
+        elements[size++] = 1;
     }
 
     private void ensureCapacity() {
-        if(size >= elements.length){
+        if (size >= elements.length) {
             throw new ArrayIndexOutOfBoundsException();
         }
     }
@@ -55,4 +61,5 @@ class Stack<E> {
 
         return size == 0;
     }
+
 }
