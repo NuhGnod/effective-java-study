@@ -1,8 +1,7 @@
 package item28;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -26,9 +25,10 @@ public class Main {
         target.add("A");
         target.add("AB");
         target.add("ABC");
-        GenericArray<List> genericStringCollection = new GenericArray<List>(target);
-        List[] lists = genericStringCollection.toArray(target);
-        System.out.println("lists = " + lists);
+        GenericArray<List> genericStringCollection = new GenericArray<List>();
+        genericStringCollection.toArray(target, target.size(), target.getClass());
+//        Arrays.copyOf(target);
+
 //        GenericArray<String> genericStrings = new GenericArray<String>(new String[]{"a", "b", "c"});
 //        ArrayList<String> target = new ArrayList<>();
 //        target.add("A");
@@ -44,17 +44,33 @@ public class Main {
 }
 
 class GenericArray<T extends Collection> {
-    private final Collection<T> genericCollections;
+//    private final Collection<T> genericCollections;
 
-    public GenericArray(Collection<?> collection) {
-        this.genericCollections = (Collection<T>) collection;
+    public <U> GenericArray() {
 
     }
 
-    public T[] toArray(Collection<?> collection) {
-        Class<? extends Collection> aClass = collection.getClass();
-        System.out.println(aClass);
-        return (T[]) collection.toArray();
+    public <U,T> U[] toArray(Collection<U> collection, int newLength, Class<? extends Collection> newType) {
+//        Arrays.copyOf()
+
+        Iterator<U> iterator = collection.stream().iterator();
+//        U[] arrr = new U[3];
+        Object[] arrr = (U[]) new Object[newLength];
+        while (iterator.hasNext()) {
+            U next = iterator.next();
+            System.out.println(next);
+            arrr[0] = next;
+        }
+        System.out.println("arrr = " + arrr);
+        System.out.println("arrr.getClass() = " + arrr.getClass());
+//        T[] copy = ((Object) newType == (Object) Object[].class)
+//                ? (T[]) new Object[newLength]
+//                : (T[]) Array.newInstance(newType.getComponentType(), newLength);
+//        System.arraycopy(collection, 0, copy, 0,
+//                Math.min(collection.size(), newLength));
+////        Array.newInstance(collection.getClass(), )
+//        U[] us = (U[]) collection.toArray();
+        return null;
     }
 
 }
