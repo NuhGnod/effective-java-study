@@ -1,8 +1,6 @@
 package item25;
-
-public class Dessert2 {
-
-}
+//
+//
 //class Utensil {
 //    static final String NAME = "PAN";
 //}

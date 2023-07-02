@@ -5,10 +5,3 @@ public class Main {
         System.out.println(Utensil.NAME + Dessert.NAME);
     }
 }
-
-class Utensil {
-    static final String NAME = "PAN";
-}
-class Dessert{
-    static final String NAME = "CAKE";
-}

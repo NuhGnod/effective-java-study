@@ -1,5 +1,6 @@
 package item32;
 
+import java.util.Collections;
 import java.util.List;
 
 public class HealPollution {
@@ -17,7 +18,12 @@ public class HealPollution {
         c = "ASD";
         c = 123;
         System.out.println("c = " + c);
+        List<String> strings = Collections.emptyList();
 
+        List<Integer> integers = Collections.emptyList();
+        Object oc = integers;
+        strings = (List<String>) oc;
+        System.out.println("strings = " + strings);
     }
 
     public static void method(List<String>... strs) {
