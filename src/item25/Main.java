@@ -7,9 +7,9 @@ public class Main {
         System.out.println(Utensil.NAME + Dessert.NAME);
     }
 }
-class Utensil {
-    static final String NAME = "pot@@@";
-}
-class Dessert{
-    static final String NAME = "pie";
-}
+//class Utensil {
+//    static final String NAME = "pot@@@";
+//}
+//class Dessert{
+//    static final String NAME = "pie";
+//}
