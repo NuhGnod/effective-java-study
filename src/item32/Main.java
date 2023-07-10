@@ -9,7 +9,8 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Main {
 
     public static void main(String[] args) {
-        String[] strings = pickTwo("/안녕", "하세", "요오");// 해결 전
+        String  hello = "안녕";
+        String[] strings = pickTwo(hello, "하세", "요오");// 해결 전
 //        List<String> stringList = (List<String>) pickTwo("안녕", "하세", "123");// 해결 후
 //        System.out.println("stringList = " + stringList);
 //        System.out.println("stringList = " + stringList.getClass().getTypeParameters().getClass().getGenericSuperclass().getTypeName());
@@ -21,6 +22,7 @@ public class Main {
         String[] obs = new String[2];
         obs[0] = "ASd";
         obs[1] = "WE";
+
         System.out.println("obs = " + obs);
         String[] strings2 = toArray(obs);
         if (strings2 instanceof String[]) {
@@ -80,8 +82,8 @@ public class Main {
 //
 //        }
 //        throw new AssertionError();
-//        return toArray(a, b, c);
-        return (T[]) toArray("asd");
+        return toArray(a, b, c);
+//        return (T[]) toArray("asd");
     }
 
     // 해결
