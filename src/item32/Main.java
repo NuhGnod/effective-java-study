@@ -76,12 +76,12 @@ public class Main {
 //            case 1:
 //                return toArray(a, c);
 //            case 2:
-//                return toArray(b, c);
+                return toArray(b, c);
 //
 //        }
 //        throw new AssertionError();
 //        return toArray(a, b, c);
-        return (T[]) toArray("asd");
+//        return (T[]) toArray("asd");
     }
 
     // 해결
