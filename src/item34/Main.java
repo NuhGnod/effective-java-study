@@ -1,5 +1,4 @@
 package item34;
-
 public class Main {
     public static void main(String[] args) {
         //계산기 수행.
@@ -10,5 +9,6 @@ public class Main {
         //가능
         double apply = Calculator.Operation.DIVIDE.apply(3, 2);
         System.out.println("apply = " + apply);
+
     }
 }
