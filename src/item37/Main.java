@@ -1,9 +1,6 @@
 package item37;
 
-import java.util.Arrays;
-import java.util.EnumMap;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.toSet;
@@ -14,6 +11,18 @@ public class Main {
                 new Plant("second", Plant.LifeCycle.BIENNIAL),
                 new Plant("third", Plant.LifeCycle.PERENNIAL),
                 new Plant("fourth", Plant.LifeCycle.PERENNIAL)};
+        Set<Plant>[] plantsByLifeCycle = (Set<Plant>[]) new Set[Plant.LifeCycle.values().length];
+
+        for(int i=0;i<plantsByLifeCycle.length;i++){
+            plantsByLifeCycle[i] = new HashSet<>();
+        }
+
+        for(Plant p : garden){
+            plantsByLifeCycle[p.lifeCycle.ordinal()].add(p);
+        }
+        for(int i=0;i<plantsByLifeCycle.length;i++){
+            System.out.printf("%s: %s%n", Plant.LifeCycle.values()[i], plantsByLifeCycle[i]);
+        }
         //==================================== v1 ===================================
 
 //        Set<Plant>[] plantsByLifeCycle = new Set[Plant.LifeCycle.values().length]; // 비검사 형변환 경고 발생!
@@ -63,15 +72,27 @@ public class Main {
 
         // =========================== v3 ==============================
 
-        System.out.println(Arrays.stream(garden).collect(groupingBy(p -> p.lifeCycle)));
-        System.out.println(Arrays.stream(garden)
-                .collect(groupingBy(p -> p.lifeCycle,
-                        () -> new EnumMap<>(Plant.LifeCycle.class),
-                        toSet())));
-
-        // =========================
-        Phase.Transition from = Phase.Transition.from(Phase.SOLID, Phase.LIQUID);
-        System.out.println("from = " + from);
+//        System.out.println(Arrays.stream(garden).collect(groupingBy(p -> p.lifeCycle)));
+//        System.out.println(Arrays.stream(garden)
+//                .collect(groupingBy(p -> p.lifeCycle,
+//                        () -> new EnumMap<>(Plant.LifeCycle.class),
+//                        toSet())));
+//
+//        // =========================
+//        Phase.Transition from = Phase.Transition.from(Phase.SOLID, Phase.LIQUID);
+//        System.out.println("from = " + from);
+        // =========================== issue 122 ===========================
+//        EnumMap<Issue122test1<String>, String> issue122test1StringEnumMap = new EnumMap<Issue122test1, String>(Issue122test1.class);
+        EnumMap<Issue122test1, String> issue122test1StringEnumMap = new EnumMap<Issue122test1, String>(Issue122test1.class);
+        issue122test1StringEnumMap.put(Issue122test1.A, "1234");
+        issue122test1StringEnumMap.put(new Object(), "1234");
+//        String s = issue122test1StringEnumMap.get(Issue122test1.A); // 가능
+//        String ss = issue122test1StringEnumMap.get(Issue122test2.A); //불가능
+//        System.out.println("s = " + s);
+//        System.out.println("ss = " + ss);
+//        List<String> arr = new LinkedList<>();
+//
+//        issue122test1StringEnumMap.put(Issue122test2.A.class, "A");
     }
 }
 
@@ -94,4 +115,10 @@ class Plant {
     public String toString() {
         return name;
     }
+}
+enum Issue122test1{
+    A,B,C;
+}
+enum Issue122test2{
+    A,B,C;
 }
