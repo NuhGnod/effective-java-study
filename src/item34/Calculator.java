@@ -1,79 +1,44 @@
 package item34;
 
-import java.util.AbstractList;
-import java.util.Map;
-import java.util.Optional;
-import java.util.stream.Stream;
+import java.util.HashMap;
 
 public class Calculator {
-
-
-    private final String symbol;
-
     private int battery;
-    private static int a = 1;
 
     public Calculator() {
-        System.out.println("Calculator.Calculator");
-        System.out.println(this);
-        this.symbol = "";
         this.battery = 100;
     }
 
     public double calculate(Operation op, double x, double y) {
         if (this.battery == 0) throw new RuntimeException("배터리 없음.");
         this.battery -= 1;
-        int instance = a;
         return op.apply(x, y);
     }
 
-    void method() {
-        int instance = a;
-        System.out.println("instance = " + instance);
-    }
+    public static enum Operation {
 
-    static void staticMethod() {
-//         int bb = battery; // 안됨.
-        int ccc = a;
-    }
-
-    public enum Operation {
-
-        PLUS("+") {
-            public double apply(double x, double y) {
-                return x + y;
-            }
-        },
-        MINUS("-") {
-            public double apply(double x, double y) {
-                return x + y;
-            }
-        },
-        TIMES("*") {
-            public double apply(double x, double y) {
-                return x + y;
-            }
-        },
-        DIVIDE("/") {
-            public double apply(double x, double y) {
-                return x + y;
-            }
-        },
+        PLUS,
+        MINUS,
+        TIMES,
+        DIVIDE,
         ;
-        private enum PLUS{
 
-        }
-        private final String symbol;
-
-        Operation(String symbol) {
-            this.symbol = symbol;
+        static {
+            final HashMap<String, Operation> map = new HashMap<>();
         }
 
-        public abstract double apply(double x, double y);
-
-        @Override
-        public String toString() {
-            return symbol;
+        public double apply(double x, double y) {
+            switch (this) {
+                case PLUS:
+                    return x + y;
+                case MINUS:
+                    return x - y;
+                case TIMES:
+                    return x * y;
+                case DIVIDE:
+                    return x / y;
+            }
+            throw new AssertionError("알수없는 연산 : " + this);
         }
     }
 }
