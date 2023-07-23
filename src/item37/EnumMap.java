@@ -250,6 +250,7 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
         if (keyType.isAssignableFrom(declaringClass)) {
 
         }
+        return false;
     }
 
     // Bulk Operations

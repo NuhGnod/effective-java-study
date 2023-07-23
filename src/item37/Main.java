@@ -85,7 +85,7 @@ public class Main {
 //        EnumMap<Issue122test1<String>, String> issue122test1StringEnumMap = new EnumMap<Issue122test1, String>(Issue122test1.class);
         EnumMap<Issue122test1, String> issue122test1StringEnumMap = new EnumMap<Issue122test1, String>(Issue122test1.class);
         issue122test1StringEnumMap.put(Issue122test1.A, "1234");
-        issue122test1StringEnumMap.put(new Object(), "1234");
+//        issue122test1StringEnumMap.put(new Object(), "1234");
 //        String s = issue122test1StringEnumMap.get(Issue122test1.A); // 가능
 //        String ss = issue122test1StringEnumMap.get(Issue122test2.A); //불가능
 //        System.out.println("s = " + s);
