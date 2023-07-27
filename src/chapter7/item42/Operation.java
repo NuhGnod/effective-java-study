@@ -5,7 +5,7 @@ import java.util.function.DoubleBinaryOperator;
 public enum Operation {
     PLUS("+", Operation::applyAsDouble),
     MINUS("-", (x, y) -> x - y),
-    TIMES("*", (x,y) -> Double.parseDouble(x + MINUS.object.toString())),
+    TIMES("*", (x, y) -> x * y),
     DIVIDE("/", (x, y) -> x / y) {
         public double apply(double a, double b) {
             String ss = DIVIDE.symbol;
@@ -18,6 +18,7 @@ public enum Operation {
     private final String symbol;
     private final DoubleBinaryOperator operator;
     public static Object object;
+
     Operation(String symbol, DoubleBinaryOperator operator) {
         System.out.println(operator.toString());
         this.symbol = symbol;
