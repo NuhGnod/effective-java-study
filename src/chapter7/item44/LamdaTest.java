@@ -2,12 +2,14 @@ package chapter7.item44;
 
 import java.util.ArrayList;
 import java.util.concurrent.Flow;
-import java.util.function.BinaryOperator;
-import java.util.function.Consumer;
-import java.util.function.Predicate;
-import java.util.function.UnaryOperator;
+import java.util.function.*;
 
 public class LamdaTest {
+    public static String method() {
+        System.out.println("LambdaTest method");
+        return "method";
+    }
+
     public static void main(String[] args) {
         // [Java Lambda Tutorials](https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html)
 
@@ -50,12 +52,25 @@ public class LamdaTest {
         System.out.println("unaryOperator.apply = " + apply);
 
         //BinaryOperator
-        BinaryOperator<Integer> binaryOperator = (x,y) -> {
-            return (x+y)/2;
+        BinaryOperator<Integer> binaryOperator = (x, y) -> {
+            return (x + y) / 2;
         };
         Integer apply1 = binaryOperator.apply(10, 8);
         System.out.println("apply1 = " + apply1);
 
+        // Function
+        Function<Integer, String> function = (n) -> {
+            return String.valueOf(n);
+        };
+        String apply2 = function.apply(10);
+        System.out.println("apply2 = " + apply2);
+
+        // Supplier
+        Supplier<String> supplier = () -> method();
+        String s = supplier.get();
+        System.out.println("Supplier = " + s);
+
+        // Consumer
     }
 
 }
