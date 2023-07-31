@@ -1,6 +1,6 @@
 package chapter6.item37;
 
-import jdk.internal.access.SharedSecrets;
+//import jdk.internal.access.SharedSecrets;
 
 import java.util.*;
 
@@ -473,10 +473,10 @@ public class EnumMap<K extends Enum<K>, V> extends AbstractMap<K, V>
      * Returns all of the values comprising K.
      * The result is uncloned, cached, and shared by all callers.
      */
-    private static <K extends Enum<K>> K[] getKeyUniverse(Class<K> keyType) {
-        return SharedSecrets.getJavaLangAccess()
-                .getEnumConstantsShared(keyType);
-    }
+//    private static <K extends Enum<K>> K[] getKeyUniverse(Class<K> keyType) {
+//        return SharedSecrets.getJavaLangAccess()
+//                .getEnumConstantsShared(keyType);
+//    }
 
     private static final long serialVersionUID = 458661240069192865L;
 

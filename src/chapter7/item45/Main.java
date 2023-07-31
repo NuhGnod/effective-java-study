@@ -59,12 +59,19 @@ public class Main {
                 .forEach(prime -> System.out.print(prime + " "));
 
         System.out.println();
-        // 처음 20개의 메르센 소수 출력.
         primes().map(p -> TWO.pow(p.intValueExact()).subtract(ONE))
                 .filter(mersenne -> mersenne.isProbablePrime(50))
                 .limit(20)
 //                .forEach(System.out::println);
                 .forEach(mp -> System.out.println(mp.bitLength() + ": "+mp));
+        // 처음 20개의 메르센 소수 출력.
+        System.out.println("지수 확인 ========================");
+        primes = primes();
+
+        primes.filter(prime -> prime.compareTo(BigInteger.valueOf(100L)) == -1)
+                .limit(20)
+                .forEach(prime -> System.out.println(prime.bitLength() + " : " + prime));
+
     }
 
     private static String alphabetize(String s) {
