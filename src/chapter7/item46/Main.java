@@ -4,6 +4,7 @@ import chapter6.item37.Phase;
 
 import java.util.*;
 import java.util.function.BinaryOperator;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.*;
@@ -91,5 +92,11 @@ public class Main {
         System.out.println();
         String collect2 = Arrays.stream(files).collect(joining(",", "Joining -> ", " //"));
         System.out.println(collect2);
+
+        // 함수형 프로그래밍 고차함수
+        Function<Integer, Function<Integer, Integer>> addCurried = x -> (y -> x % y);
+        Function<Integer, Integer> addFive = addCurried.apply(5);
+        int result = addFive.apply(3);
+        System.out.println("Result: " + result); // Output: Result: 8
     }
 }
