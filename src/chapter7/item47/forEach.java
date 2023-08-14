@@ -1,9 +1,11 @@
 package chapter7.item47;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class forEach {
     public static void main(String[] args) {
@@ -22,12 +24,14 @@ public class forEach {
                 .collect(Collectors.toList());
 
         System.out.println(doubledNumbers); // 출력: [2, 4, 6, 8, 10]
-        for (ProcessHandle ph : (Iterable<? extends ProcessHandle>) ProcessHandle.allProcesses()::iterator) {
-
+        String[] arr = new String[]{"a", "b"};
+        for (String arg : (Iterable<String>) Arrays.stream(arr)::iterator) {
+            System.out.println(arg);
         }
-
-
-
+        for (String arg : (Iterable<String>) Arrays.stream(arr)::iterator){
+            System.out.println(arg);
+        }
+        Iterable<String> iterator = Arrays.stream(arr)::iterator;
 
     }
 }
