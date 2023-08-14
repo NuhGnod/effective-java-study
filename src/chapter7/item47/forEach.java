@@ -22,6 +22,10 @@ public class forEach {
                 .collect(Collectors.toList());
 
         System.out.println(doubledNumbers); // 출력: [2, 4, 6, 8, 10]
+        for (ProcessHandle ph : (Iterable<? extends ProcessHandle>) ProcessHandle.allProcesses()::iterator) {
+
+        }
+
 
 
 
