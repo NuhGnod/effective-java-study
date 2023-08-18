@@ -31,6 +31,7 @@ public class RawEnum {
     public RawEnum(int number) {
         this.number = number;
         RawEnum one = RawEnum.ONE;
+//        System.out.println(RawEnum.ONE.number);
         System.out.println("one = " + one);
     }
     public int plus(RawEnum first, RawEnum second) {

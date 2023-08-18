@@ -40,6 +40,7 @@ public enum Operation {
 //        System.out.println(this.toString());
         this.symbol = symbol;
 //        Operation plus = this.PLUS;
+
 //        stringToEnum
 //        stringToEnum.put("+", this.PLUS);
     }
