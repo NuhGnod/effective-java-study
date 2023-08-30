@@ -2,13 +2,17 @@ package chapter5.item32;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
 
     public static void main(String[] args) {
         String  hello = "안녕";
-        String[] strings = pickTwo(hello, "하세", "요오");// 해결 전
-//        List<String> stringList = (List<String>) pickTwo("안녕", "하세", "123");// 해결 후
+        String[] array = toArray("좋은", "빠른", "저렴한");
+        System.out.println("array = " + array[0]);
+
+//        String[] strings = pickTwo(hello, "하세", "요오");// 해결 전
+        List<String> stringList = (List<String>) pickTwo2("안녕", "하세", "123");// 해결 후
 //        System.out.println("stringList = " + stringList);
 //        System.out.println("stringList = " + stringList.getClass().getTypeParameters().getClass().getGenericSuperclass().getTypeName());
 //        System.out.println("stringList.get(0) = " + stringList.get(0));
@@ -50,44 +54,45 @@ public class Main {
     }
 
     static <T> T[] toArray(T... args) {
-        if (args instanceof String[]) {
-            System.out.println("ASD");
-        }
+//        if (args instanceof String[]) {
+//            System.out.println("ASD##################");
+//        }
         return args;
     }
 
     // 에러
     static <T> T[] pickTwo(T a, T b, T c) {
-        Object checkj = (Object) a;
-        System.out.println(checkj.getClass());
-        System.out.println("checkj = " + checkj);
-
-        String checkj2 = (String) a;
-        System.out.println(checkj2.getClass());
-        System.out.println("checkj2 = " + checkj);
-
-        if (a instanceof String) {
-            System.out.println("ASD@@@@");
-        }
-//        switch (ThreadLocalRandom.current().nextInt(3)) {
-//            case 0:
-//                return toArray("ASD", "ASD");
-//            case 1:
-//                return toArray(a, c);
-//            case 2:
-//                return toArray(b, c);
+//        Object checkj = (Object) a;
+//        System.out.println(checkj.getClass());
+//        System.out.println("checkj = " + checkj);
 //
+//        String checkj2 = (String) a;
+//        System.out.println(checkj2.getClass());
+//        System.out.println("checkj2 = " + checkj);
+//
+//        if (a instanceof String) {
+//            System.out.println("ASD@@@@");
 //        }
-//        throw new AssertionError();
-        return toArray(a, b, c);
+        switch (ThreadLocalRandom.current().nextInt(3)) {
+            case 0:
+                return toArray(a, b);
+            case 1:
+                return toArray(a, c);
+            case 2:
+                return toArray(b, c);
+
+        }
+
+        throw new AssertionError();
+//        return toArray(a, b, c);
 //        return (T[]) toArray("asd");
     }
 
     // 해결
 
-//    static <T> List<T> pickTwo(T a, T b, T c) {
-//        List<T> a1 = List.of(a, b, c);
-//        return a1;
-//    }
+    static <T> List<T> pickTwo2(T a, T b, T c) {
+        List<T> a1 = List.of(a, b, c);
+        return a1;
+    }
 }
 

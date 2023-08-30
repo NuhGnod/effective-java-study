@@ -1,7 +1,9 @@
 package chapter5.item32;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 public class HealPollution {
     public static void main(String[] args) {
@@ -24,21 +26,44 @@ public class HealPollution {
         Object oc = integers;
         strings = (List<String>) oc;
         System.out.println("strings = " + strings);
+
+        // 힙 오염 방지.
+        some(List.of(stringList2, stringList3, stringList));
+    }
+    public static void some(List<List<String>> strs) {
+        Object ob = strs;
+        List<Integer> intList = new ArrayList<>();
+        intList.add(43);
+        intList.add(433);
+        ob = intList;
+        String s = strs.get(0).get(0);
+        System.out.println("s!! = " + s);
     }
 
     public static void method(List<String>... strs) {
-        System.out.println(strs.getClass().getTypeName());
-        System.out.println("strs = " + strs);
-        List<Integer> intList = List.of(43);
+        if (strs instanceof List[]) {
+            System.out.println("#########################");
+        }
+        List<Integer> intList = new ArrayList<>();
+        intList.add(43);
+        intList.add(433);
+        List<String> stringList = new ArrayList<>();
         Object[] objects = strs;
+        List<String>[] listarr = new ArrayList[3];
 
+//        listarr[0] = new ArrayList<>();
+//        objects = listarr;
+        int[] aa = new int[3];
 //        System.out.println(objects.getClass().getTypeName());
 //        System.out.println("objects = " + objects);
 //        for (Object o : objects) {
 //            System.out.println("o = " + o);
 //        }
-        objects[0] = intList;
-//        String s = String.valueOf(strs[0].get(0));
+
+//        System.out.println("strs = " + strs);
+//        objects[0] = intList;
+//        System.out.println("objects = " + objects);
+        String s = (strs[0].get(0));
 //        System.out.println("s = " + s);
 
     }
