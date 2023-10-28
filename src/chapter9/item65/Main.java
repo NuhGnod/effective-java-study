@@ -6,11 +6,32 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Main {
+
+    public static <T extends Set<String>> Class<?> getSetSubclass(String className) throws ClassNotFoundException {
+        Class<?> clazz = Class.forName(className);
+        if (Set.class.isAssignableFrom(clazz)) {
+            @SuppressWarnings("unchecked")
+            Class<? extends Set<String>> result = (Class<? extends Set<String>>) clazz;
+
+            return result;
+        } else
+            throw new IllegalArgumentException(className + " is not a subclass of Set<String>.");
+    }
+
     public static void main(String[] args) {
         args = new String[]{"HashSet", "HashMap"};
         new HashSet<String>();
+
+
         try {
+
+            Class<? extends Set<String>> forName = (Class<? extends Set<String>>) getSetSubclass("java.util.HashMap");
+
+            Class<?> aClass = Class.forName("java.util.HashSet");
+
             Class<? extends Set<String>> forName1 = (Class<? extends Set<String>>) Class.forName("java.util.HashSet");
+
+
             System.out.println("forName1 = " + forName1);
             Constructor<? extends Set<String>> constructor1 = forName1.getConstructor();
             Set<String> set = constructor1.newInstance();
